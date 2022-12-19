@@ -12,7 +12,7 @@ const Card = ({ image, flip, isFlipped }) => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        height: "200px",
+        height: "250px",
         position: "relative",
         transform: `rotateY(${isFlipped ? "180deg" : "0deg"})`,
         transformStyle: "preserve-3d",
@@ -26,6 +26,7 @@ const Card = ({ image, flip, isFlipped }) => {
           <img
             src={CardCover}
             alt="cardcover"
+            draggable="false"
             style={{
               position: "absolute",
               height: "100%",
@@ -36,7 +37,8 @@ const Card = ({ image, flip, isFlipped }) => {
 
           <img
             src={image.src}
-            alt="something"
+            alt="ded"
+            draggable="false"
             style={{
               position: "absolute",
               height: "100%",
@@ -67,7 +69,6 @@ const CardContainer = () => {
   };
   const flip = (index) => {
     let newFlipped = flipped.map((item, i) => (i === index ? !item : item));
-    // let flippedCount = newFlipped.filter((flip) => flip === true);
     setFlipped(newFlipped);
     if (firstFlip === null) {
       setFisrtFlip(index);
@@ -115,7 +116,7 @@ const CardContainer = () => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center  ",
-          backgroundColor: "red",
+          backgroundColor: "aquamarine",
           position: "fixed",
         }}
         onClick={() => generate()}
